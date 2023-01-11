@@ -2,6 +2,7 @@ from scapy.packet import *
 from scapy.fields import *
 from scapy.ansmachine import *
 from scapy.layers.inet import *
+# import dissector
 
 
 class POPField(StrField):
