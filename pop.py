@@ -10,6 +10,7 @@ class POPField(StrField):
     @attention: it inherets StrField from Scapy library
     """
     holds_packets = 1
+#     name = "POPField"
 
     def getfield(self, pkt, s):
         """
@@ -21,6 +22,16 @@ class POPField(StrField):
         @param pkt: holds the whole packet
         @param s: holds only the remaining data which is not dissected yet.
         """
+#         cstream = -1
+#         if pkt.underlayer.name == "TCP":
+#             cstream = dissector.check_stream(\
+#             pkt.underlayer.underlayer.fields["src"],\
+#              pkt.underlayer.underlayer.fields["dst"],\
+#               pkt.underlayer.fields["sport"],\
+#                pkt.underlayer.fields["dport"],\
+#                 pkt.underlayer.fields["seq"], s)
+#         if not cstream == -1:
+#             s = cstream
         remain = ""
         value = ""
         ls = s.splitlines()
@@ -83,6 +94,7 @@ class POPField(StrField):
         """
         super().__init__(name, default, fmt)
         self.name = name
+#         StrField.__init__(self, name, default, fmt, remain)
 
 
 class POPRes(Packet):
