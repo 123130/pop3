@@ -4,7 +4,10 @@ from pop import POPRes
 
 def parse(data):
     hex_data = hex_bytes(data)
+#   测试响应报文
     result = POPRes(hex_data)
+#   测试请求报文
+#   result = POPReq(hex_data)
     result.show(dump = False)
 
 def test_parse_pop():
